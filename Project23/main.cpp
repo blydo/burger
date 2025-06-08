@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include <iomanip>
 
+void StartSells();
 void AddProduct();
 void ChangePrice();
 void ShowTheWarehouse();
@@ -25,7 +26,9 @@ int main()
 
 
 
-	
+	delete[] Title;
+	delete[] Price;
+	delete[] Amounth;
 	return 0;
 }
 
@@ -47,7 +50,7 @@ void ShowMenu()
 	std::cin >> choose;
 	if (choose == "1")
 	{
-
+		StartSells();
 	}
 	else if (choose == "2")
 	{
@@ -79,6 +82,26 @@ void ShowMenu()
 	{
 		exit(0);
 	}
+}
+void StartSells() 
+{
+	int choose;
+	int count;
+
+	std::string* tmpTitle = new std::string[size];
+	int* tmpPrice = new int[size];
+	int* tmpAmounth = new int[size];
+
+	ShowTheWarehouse();
+	std::cout << "\n0. закончить покупки \n";
+	std::cout << "ввод: ";
+	std::cin >> choose;
+	std::cout << "введите количество: ";
+	std::cin >> count;
+
+
+
+
 }
 void ChangePrice() 
 {
@@ -154,32 +177,57 @@ void RemoveProduct()
 	std::cout << "\n¬ведите номер продукта: ";
 	std::cin >> choose;
 
-	std::string* tmpTitle = new std::string[size];
-	int* tmpPrice = new int[size];
-	int* tmpAmounth= new int[size];
 
-	for (int i = 1; i < size; i++)
+	for (int i = 1; i <= size; i++)
 	{
 		if (i == choose)
 		{
-			tmpTitle[i] = " ";
-			tmpPrice[i] = 0;
-			tmpAmounth[i] = 0;
+			Title[i - 1] = "";
+			Price[i - 1] = NULL;
+			Amounth[i - 1] = NULL;
 		}
-			tmpTitle[i] = Title[i];
-			tmpPrice[i] = Price[i];
-			tmpAmounth[i] = Amounth[i];
-		
-		
 	}
-	std::swap(tmpTitle, Title);
-	std::swap(tmpPrice, Price);
-	std::swap(tmpAmounth, Amounth);
+	
 	
 
 }
 void AddProduct() 
 {
+	int newPrice;
+	int newAmounth;
+	std::string newTitle;
+
+	std::string* tmpTitle = new std::string[size + 1];
+	int* tmpPrice = new int[size + 1];
+	int* tmpAmounth = new int[size + 1];
+
+	for (int i = 0; i < size; i++)
+	{
+		tmpTitle[i] = Title[i];
+		tmpPrice[i] = Price[i];
+		tmpAmounth[i] = Amounth[i];
+	}
+	size += 1;
+
+	std::cout << "введите название: ";
+	std::cin >> newTitle;
+	std::cout << "введите цену: ";
+	std::cin >> newPrice;
+	std::cout << "введите кличество: ";
+	std::cin >> newAmounth;
+
+	tmpTitle[size - 1] = newTitle;
+	tmpPrice[size - 1] = newPrice;
+	tmpAmounth[size - 1] = newAmounth;
+
+	std::swap(tmpTitle, Title);
+	std::swap(tmpPrice, Price);
+	std::swap(tmpAmounth, Amounth);
+
+
+	delete[] tmpTitle;
+	delete[] tmpPrice;
+	delete[] tmpAmounth;
 
 }
 
@@ -189,6 +237,6 @@ void ShowTheWarehouse()
 	system("cls");
 	for (int i = 0; i < size; i++)
 	{
-		std::cout << i + 1 << '\t' << std::left << std::setw(30) << Title[i] << "\t" << Amounth[i] << "\t" << Price[i] << "\n";
+		std::cout << i + 1 << '\t' << std::left << std::setw(30) << Title[i] << "\t" << Price[i] << "\t" << Amounth[i] << "\n";
 	}
 }
