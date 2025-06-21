@@ -15,7 +15,7 @@ void ChangeAssortment();
 
 int size = 10;
 std::string* Title = new std::string[size]{ "чизбергер", "гамбургер", "черный лари", "сырная скала", "джейсон стетхам", "доминик торрето", "острый пукан", "бурш калифа", "травка по скидке", "сосугавкус" };
-int* Price = new int[size] {100, 90, 759, 940, 1000, 1500, 568, 2500, 300, 825 };
+int* Price = new int[size] {100, 69, 759, 940, 1000, 1500, 568, 2500, 300, 825 };
 int* Amounth = new int[size] {50, 70, 20, 10, 20, 90, 40, 20, 15, 25 };
 
 int main() 
@@ -92,13 +92,54 @@ void StartSells()
 	int* tmpPrice = new int[size];
 	int* tmpAmounth = new int[size];
 
-	ShowTheWarehouse();
-	std::cout << "\n0. закончить покупки \n";
-	std::cout << "ввод: ";
-	std::cin >> choose;
-	std::cout << "введите количество: ";
-	std::cin >> count;
+	while (true) {
 
+		ShowTheWarehouse();
+		std::cout << "\n0. закончить покупки \n";
+		std::cout << "Введите товар: ";
+		std::cin >> choose;
+		if (choose == 0)
+		{
+			break;
+		}
+		std::cout << "введите количество: ";
+		std::cin >> count;
+		if (count == 0)
+		{
+			continue;
+		}
+		tmpTitle[choose - 1] = Title[choose - 1];
+		tmpPrice[choose - 1] = Price[choose - 1] * count; 
+		tmpAmounth[choose - 1] = 0 + count;
+		Amounth[choose - 1] -= count;
+
+	}
+	system("cls");
+	for (int i = 0; i < size; i++)
+	{
+		if (tmpTitle[i] != "" && tmpPrice[i] > 0 && tmpAmounth[i] > 0)
+		{
+			std::cout << i + 1 << '\t' << std::left << std::setw(30) << tmpTitle[i] << "\t" << tmpPrice[i] << "\t" << tmpAmounth[i] << "\n";
+		}
+	
+	}
+	int check = 0;
+	for (int i = 0; i < size; i++)
+	{
+		if (tmpPrice[i] > 0)
+		{
+			check += tmpPrice[i];
+			
+		}
+	}
+	std::cout << "Общая цена: " << check;
+	
+
+	
+
+	//tmpTitle[choose - 1] = Title[choose - 1];
+
+	
 
 
 
