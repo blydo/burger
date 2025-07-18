@@ -127,7 +127,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Logic.cpp" />
+    <ClCompile Include="ShowWarehouse.cpp" />
+    <ClCompile Include="ShowMenu.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Models.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Logic.hpp" />
+    <ClInclude Include="ShowWarehouse.hpp" />
+    <ClInclude Include="ShowMenu.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
