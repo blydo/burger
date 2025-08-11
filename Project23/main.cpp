@@ -1,7 +1,7 @@
 #include <Windows.h>
 
 #include "ShowMenu.hpp"
-#include "Models.cpp"
+#include "Models.hpp"
 
 
 int main() {

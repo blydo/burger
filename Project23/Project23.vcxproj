@@ -135,6 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Logic.hpp" />
+    <ClInclude Include="Models.hpp" />
     <ClInclude Include="ShowWarehouse.hpp" />
     <ClInclude Include="ShowMenu.hpp" />
   </ItemGroup>

@@ -3,8 +3,7 @@
 #include <iostream>
 #include <iomanip>
 
-#include "Models.cpp"
-#pragma once
+#include "ShowWarehouse.hpp"
 
 void ShowTheWarehouse()
 {

@@ -1,9 +1,8 @@
 #pragma once
-#include <iostream>
-#include <Windows.h>
-#include <string>
-#include "Logic.hpp"
-#include "ShowWarehouse.hpp"
+
+
+#include "ShowMenu.hpp"
+
 
 void ShowMenu()
 {

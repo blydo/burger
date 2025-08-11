@@ -1,7 +1,11 @@
 #pragma once
 #ifndef SHOWMENU_HPP
 
-#include "ShowMenu.cpp"
+#include <iostream>
+#include <Windows.h>
+#include <string>
+#include "Logic.hpp"
+#include "ShowWarehouse.hpp"
 
 
 

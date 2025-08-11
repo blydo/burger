@@ -1,11 +1,5 @@
-#pragma once
-#ifndef LOGIC_CPP
-#include <iostream>
-#include <string>
-#include <Windows.h>
-#include <iomanip>
-#include "ShowWarehouse.hpp"
-#include "ShowMenu.hpp"
+
+#include "Logic.hpp"
 
 void StartSells()
 {
@@ -209,10 +203,3 @@ void AddProduct()
 }
 
 
-
-
-
-
-
-
-#endif //  LOGIC_CPP
